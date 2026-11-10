@@ -11,6 +11,7 @@ import {
   INITIAL_STORE_SETTINGS,
   INITIAL_ORDERS,
   PROMO_VOUCHERS,
+  IMAGES,
 } from './data/initialData';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -36,7 +37,24 @@ export default function App() {
   // Persistence state
   const [menuItems, setMenuItems] = useState<MenuItem[]>(() => {
     const saved = localStorage.getItem('martabak_menu_items');
-    return saved ? JSON.parse(saved) : INITIAL_MENU_ITEMS;
+    if (saved) {
+      try {
+        const parsed: MenuItem[] = JSON.parse(saved);
+        // Fix any stale development paths from earlier sessions
+        return parsed.map((item) => {
+          if (typeof item.image === 'string' && item.image.startsWith('/src/assets/images/')) {
+            if (item.image.includes('manis_spesial')) return { ...item, image: IMAGES.manisSpesial };
+            if (item.image.includes('telur_bebek')) return { ...item, image: IMAGES.telurBebek };
+            if (item.image.includes('tipker')) return { ...item, image: IMAGES.tipker };
+            return { ...item, image: IMAGES.hero };
+          }
+          return item;
+        });
+      } catch {
+        return INITIAL_MENU_ITEMS;
+      }
+    }
+    return INITIAL_MENU_ITEMS;
   });
 
   const [storeSettings, setStoreSettings] = useState<StoreSettings>(() => {

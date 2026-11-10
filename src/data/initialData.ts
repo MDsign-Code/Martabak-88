@@ -9,12 +9,17 @@ import {
   Order,
 } from '../types/martabak';
 
-// Generated image assets
+import heroImg from '../assets/images/hero_martabak_spread_1794289227284.jpg';
+import manisSpesialImg from '../assets/images/martabak_manis_spesial_1794289228094.jpg';
+import telurBebekImg from '../assets/images/martabak_telur_bebek_1794289228992.jpg';
+import tipkerImg from '../assets/images/martabak_tipker_crispy_1794289229421.jpg';
+
+// Bundled image assets
 export const IMAGES = {
-  hero: '/src/assets/images/hero_martabak_spread_1794289227284.jpg',
-  manisSpesial: '/src/assets/images/martabak_manis_spesial_1794289228094.jpg',
-  telurBebek: '/src/assets/images/martabak_telur_bebek_1794289228992.jpg',
-  tipker: '/src/assets/images/martabak_tipker_crispy_1794289229421.jpg',
+  hero: heroImg,
+  manisSpesial: manisSpesialImg,
+  telurBebek: telurBebekImg,
+  tipker: tipkerImg,
 };
 
 export const INITIAL_MENU_ITEMS: MenuItem[] = [

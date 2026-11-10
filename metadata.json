@@ -1,0 +1,6 @@
+{
+  "name": "Martabak Sultan - Pesan Online & Manajemen Menu",
+  "description": "Aplikasi pemesanan Martabak online dengan kustomisasi topping lengkap, integrasi WhatsApp, status buka/tutup toko, promo instan, dan panel admin real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
